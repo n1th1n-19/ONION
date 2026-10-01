@@ -1,0 +1,55 @@
+name: Release
+
+# Push a tag that matches package.json's version, e.g.:
+#   npm version patch   (bumps version, commits, tags vX.Y.Z)
+#   git push --follow-tags
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write # create the GitHub Release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      # Job-level so the publish steps' `if:` can see them (a step's own env isn't visible to its `if`).
+      VSCE_PAT: ${{ secrets.VSCE_PAT }}
+      OVSX_PAT: ${{ secrets.OVSX_PAT }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Check tag matches package.json version
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          if [ "v$version" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::Tag $GITHUB_REF_NAME does not match package.json version v$version"
+            exit 1
+          fi
+          echo "VSIX=onion-theme-$version.vsix" >> "$GITHUB_ENV"
+
+      - run: npm ci --ignore-scripts
+      - run: npm run build
+
+      - name: Package
+        run: npx vsce package --no-dependencies --no-rewrite-relative-links --out "$VSIX"
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" "$VSIX" --title "Onion Theme $GITHUB_REF_NAME" --generate-notes
+
+      # Optional: runs only when the token secret is configured in the repo settings.
+      - name: Publish to VS Code Marketplace
+        if: ${{ env.VSCE_PAT != '' }}
+        run: npx vsce publish --no-dependencies --packagePath "$VSIX"
+
+      - name: Publish to Open VSX
+        if: ${{ env.OVSX_PAT != '' }}
+        run: npx --yes ovsx publish "$VSIX" --pat "$OVSX_PAT"

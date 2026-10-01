@@ -8,3 +8,6 @@ build.js
 .playwright-mcp/**
 package-lock.json
 images/logo.svg
+test/**
+.github/**
+.gitignore

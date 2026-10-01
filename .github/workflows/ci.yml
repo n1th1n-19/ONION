@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      # Install scripts only build optional native helpers (woff2, signing) that this project doesn't use.
+      - run: npm ci --ignore-scripts
+
+      # Generates themes + icon font and fails on contrast, color or icon-reference errors.
+      - run: npm run build
+
+
+      - name: Package
+        run: npx vsce package --no-dependencies --no-rewrite-relative-links --out onion-theme.vsix
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: onion-theme-vsix
+          path: onion-theme.vsix
+          if-no-files-found: error

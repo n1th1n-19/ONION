@@ -8,3 +8,15 @@ icons/product/
 # local tool state
 .playwright-mcp/
 .remember/
+brag-output/
+
+# local-only tests (not in the repo)
+test/
+
+# logs + OS/editor junk
+npm-debug.log*
+*.log
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
