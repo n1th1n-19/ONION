@@ -4,7 +4,7 @@
 
 A night & day theme system for VS Code, tuned for **JavaScript, TypeScript and Python**.
 
-<p align="center"><a href="images/demo.mp4"><img src="images/demo.jpg" width="720" alt="Onion Theme demo video: 5 palettes, night & day switching, onion bulb file icons"></a><br><sub>▶ Watch the 21s demo</sub></p>
+<p align="center"><a href="images/demo.mp4"><img src="images/demo.gif" width="800" alt="Onion Theme demo: 5 palettes, night & day switching, onion bulb file icons"></a><br><sub>Click for the full-quality video</sub></p>
 
 - **10 color themes**: 5 palettes × Night (dark) / Day (light)
 - **Two file icon themes** (JS/TS/Python-aware: tests, `.d.ts`, `__init__.py`, `pyproject.toml`, venvs, caches…)
