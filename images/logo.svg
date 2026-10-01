@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Onion Theme logo: an onion whose layers are the five palette accents (outer to core:
+       Red, Shallot, Leek, Scallion, Mocha). Bulb path matches the Bulb file icons (16-grid). -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#262438"/>
+      <stop offset="1" stop-color="#11111b"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <g transform="translate(32 40) scale(12)">
+    <!-- sprout -->
+    <path d="M8 1.2C7.9-.2 8.5-1.3 10.1-1.9" fill="none" stroke="#a3dc8c" stroke-width=".7" stroke-linecap="round"/>
+    <path d="M9.4-1.5C10.3-2.6 11.6-2.7 12.4-2.3 11.7-1.4 10.5-1 9.4-1.5Z" fill="#a3dc8c"/>
+    <!-- roots -->
+    <path d="M7 14.4l-.7 1.4M8 14.6v1.6M9 14.4l.7 1.4" fill="none" stroke="#f5e0dc" stroke-width=".6" stroke-linecap="round"/>
+    <!-- layers: the bulb squeezed horizontally, so every layer meets at tip and base -->
+    <g stroke="#1e1e2e" stroke-width=".38" stroke-linejoin="round">
+      <path d="M8 0.8C8.3 2.2 8.9 3.1 9.9 3.8C12.6 4.6 14.2 6.8 14.2 9.4C14.2 12.6 11.5 14.6 8 14.6C4.5 14.6 1.8 12.6 1.8 9.4C1.8 6.8 3.4 4.6 6.1 3.8C7.1 3.1 7.7 2.2 8 0.8Z" fill="#d199f5"/>
+      <path d="M8 0.8C8.237 2.2 8.711 3.1 9.501 3.8C11.634 4.6 12.898 6.8 12.898 9.4C12.898 12.6 10.765 14.6 8 14.6C5.235 14.6 3.102 12.6 3.102 9.4C3.102 6.8 4.366 4.6 6.499 3.8C7.289 3.1 7.763 2.2 8 0.8Z" fill="#f4a3b4"/>
+      <path d="M8 0.8C8.174 2.2 8.522 3.1 9.102 3.8C10.668 4.6 11.596 6.8 11.596 9.4C11.596 12.6 10.03 14.6 8 14.6C5.97 14.6 4.404 12.6 4.404 9.4C4.404 6.8 5.332 4.6 6.898 3.8C7.478 3.1 7.826 2.2 8 0.8Z" fill="#7fdccf"/>
+      <path d="M8 0.8C8.114 2.2 8.342 3.1 8.722 3.8C9.748 4.6 10.356 6.8 10.356 9.4C10.356 12.6 9.33 14.6 8 14.6C6.67 14.6 5.644 12.6 5.644 9.4C5.644 6.8 6.252 4.6 7.278 3.8C7.658 3.1 7.886 2.2 8 0.8Z" fill="#a3dc8c"/>
+      <path d="M8 0.8C8.054 2.2 8.162 3.1 8.342 3.8C8.828 4.6 9.116 6.8 9.116 9.4C9.116 12.6 8.63 14.6 8 14.6C7.37 14.6 6.884 12.6 6.884 9.4C6.884 6.8 7.172 4.6 7.658 3.8C7.838 3.1 7.946 2.2 8 0.8Z" fill="#f9e2af"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,194 @@
+{
+  "name": "onion-theme",
+  "displayName": "Onion Theme",
+  "description": "Night & day theme system tuned for JavaScript, TypeScript and Python — 10 color themes, file icons and product icons.",
+  "version": "0.1.0",
+  "publisher": "onion",
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#1e1e2e",
+    "theme": "dark"
+  },
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "light",
+    "icons",
+    "product icons",
+    "python",
+    "typescript",
+    "javascript",
+    "catppuccin"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "scripts": {
+    "build": "node build.js",
+    "package": "npm run build && vsce package --no-rewrite-relative-links"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^4.0.0",
+    "fantasticon": "^4.1.0"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Onion Red Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/onion-red-night-color-theme.json"
+      },
+      {
+        "label": "Onion Red Day",
+        "uiTheme": "vs",
+        "path": "./themes/onion-red-day-color-theme.json"
+      },
+      {
+        "label": "Onion Shallot Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/onion-shallot-night-color-theme.json"
+      },
+      {
+        "label": "Onion Shallot Day",
+        "uiTheme": "vs",
+        "path": "./themes/onion-shallot-day-color-theme.json"
+      },
+      {
+        "label": "Onion Scallion Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/onion-scallion-night-color-theme.json"
+      },
+      {
+        "label": "Onion Scallion Day",
+        "uiTheme": "vs",
+        "path": "./themes/onion-scallion-day-color-theme.json"
+      },
+      {
+        "label": "Onion Leek Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/onion-leek-night-color-theme.json"
+      },
+      {
+        "label": "Onion Leek Day",
+        "uiTheme": "vs",
+        "path": "./themes/onion-leek-day-color-theme.json"
+      },
+      {
+        "label": "Onion Mocha Night",
+        "uiTheme": "vs-dark",
+        "path": "./themes/onion-mocha-night-color-theme.json"
+      },
+      {
+        "label": "Onion Mocha Day",
+        "uiTheme": "vs",
+        "path": "./themes/onion-mocha-day-color-theme.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "onion-files",
+        "label": "Onion Classic Icons",
+        "path": "./themes/onion-file-icons-classic.json"
+      },
+      {
+        "id": "onion-files-bulb",
+        "label": "Onion Bulb Icons",
+        "path": "./themes/onion-file-icons-bulb.json"
+      }
+    ],
+    "productIconThemes": [
+      {
+        "id": "onion-product",
+        "label": "Onion Product Icons",
+        "path": "./themes/onion-product-icons.json"
+      }
+    ],
+    "configuration": {
+      "title": "Onion Theme",
+      "properties": {
+        "onion.accent": {
+          "type": "string",
+          "default": "default",
+          "pattern": "^(default|red|rose|peach|yellow|green|teal|sky|blue|mauve|lavender|#[0-9a-fA-F]{6})$",
+          "markdownDescription": "Accent color for cursor, selection, active tab, buttons and folders. One of `default`, `red`, `rose`, `peach`, `yellow`, `green`, `teal`, `sky`, `blue`, `mauve`, `lavender`, or a `#rrggbb` hex."
+        },
+        "onion.bordered": {
+          "type": "boolean",
+          "default": false,
+          "description": "Draw 1px borders between sidebar, editor, panel and tabs."
+        },
+        "onion.contrastSidebar": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use the darkest background for the sidebar and panel."
+        },
+        "onion.italic": {
+          "type": "boolean",
+          "default": true,
+          "description": "Italicize comments, docstrings, parameters, self/this, decorators and type parameters."
+        },
+        "onion.folderColor": {
+          "type": "string",
+          "enum": [
+            "accent",
+            "neutral"
+          ],
+          "default": "accent",
+          "description": "Color folder icons with the accent or a neutral gray."
+        },
+        "onion.dayNight": {
+          "type": "string",
+          "enum": [
+            "off",
+            "os",
+            "schedule"
+          ],
+          "default": "off",
+          "enumDescriptions": [
+            "Never switch automatically.",
+            "Follow the OS light/dark setting (uses window.autoDetectColorScheme).",
+            "Switch at onion.dayStart and onion.nightStart."
+          ],
+          "description": "Switch between the Day and Night variant of the current Onion palette automatically."
+        },
+        "onion.dayStart": {
+          "type": "string",
+          "default": "07:00",
+          "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+          "description": "Day variant starts at (HH:MM, local time)."
+        },
+        "onion.nightStart": {
+          "type": "string",
+          "default": "19:00",
+          "pattern": "^([01]\\d|2[0-3]):[0-5]\\d$",
+          "description": "Night variant starts at (HH:MM, local time)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "onion.selectAccent",
+        "title": "Select Accent",
+        "category": "Onion"
+      },
+      {
+        "command": "onion.toggleDayNight",
+        "title": "Toggle Day/Night",
+        "category": "Onion"
+      },
+      {
+        "command": "onion.reset",
+        "title": "Reset Customizations",
+        "category": "Onion"
+      }
+    ]
+  }
+}
