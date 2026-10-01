@@ -10,6 +10,14 @@
     "theme": "dark"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/n1th1n-19/ONION.git"
+  },
+  "homepage": "https://github.com/n1th1n-19/ONION#readme",
+  "bugs": {
+    "url": "https://github.com/n1th1n-19/ONION/issues"
+  },
   "engines": {
     "vscode": "^1.90.0"
   },
@@ -31,10 +39,18 @@
   "activationEvents": [
     "onStartupFinished"
   ],
+  "files": [
+    "extension.js",
+    "src/**",
+    "themes/**",
+    "images/icon.png",
+    "LICENSE",
+    "README.md"
+  ],
   "scripts": {
     "build": "node build.js",
     "test": "node test/extension.test.js",
-    "package": "npm run build && vsce package --no-dependencies --no-rewrite-relative-links"
+    "package": "npm run build && vsce package --no-dependencies"
   },
   "devDependencies": {
     "@vscode/vsce": "^4.0.0",

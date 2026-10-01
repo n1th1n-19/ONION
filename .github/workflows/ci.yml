@@ -12,9 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -27,9 +27,9 @@ jobs:
 
 
       - name: Package
-        run: npx vsce package --no-dependencies --no-rewrite-relative-links --out onion-theme.vsix
+        run: npx vsce package --no-dependencies --out onion-theme.vsix
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: onion-theme-vsix
           path: onion-theme.vsix
